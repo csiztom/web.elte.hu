@@ -1,0 +1,1 @@
+scp -r . csizmadiat@caesar.elte.hu:~/public_html/
