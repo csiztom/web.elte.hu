@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+ <html lang="hu">
+    <head>
+        <meta charset="utf-8">
+		<title>SET játék</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+            #ui {
+                width:100%; 
+                height: 100%;
+                position: absolute;
+                background-color:#e97c16;
+                text-align: center;
+                font-family: 'Josefin Sans', sans-serif;
+            }
+            #ui p{
+                margin: 20px;
+            }
+            #front-page {
+                background-color: #790606;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 4;
+                text-align: center;
+                color: white;
+                font-family: 'Josefin Sans', sans-serif;
+            }
+            #front-page.hidden {
+                transition: 2s;
+                transform: translate(0,-100%);
+            }
+            #front-page.shown {
+                transition: 2s;
+                transform: translate(0,100%);
+            }
+            p, ul, button {
+                margin: 1% 5%;
+                font-size: 3vmin;
+                color: white;
+            }
+            h1 {
+                font-family: 'Anton', sans-serif;
+                font-size: 10vmin;
+                margin: 4vmin;
+            }
+            ul {
+                text-align: left;
+            }
+            button.on, button.off:active, #start:active{
+                margin: 1.6vmin;
+                border-radius: 50px;
+                background: linear-gradient(145deg, #6d0505, #810606);
+                box-shadow:  10px 10px 20px #560404, -10px -10px 20px #9c0808;
+                border: none;
+                padding: 3vmin 4vmin;
+                display: inline-block;
+                text-decoration: none;
+            }
+            button.on:not(#rules):not(#top), #hard {
+                color:rgb(233, 124, 22);
+            }
+            button.off {
+                margin: 1.6vmin;
+                border-radius: 50px;
+                background: linear-gradient(145deg, #810606, #6d0505);
+                box-shadow:  10px 10px 20px #560404, -10px -10px 20px #9c0808;
+                border: none;
+                padding: 3vmin 4vmin;
+                display: inline-block;
+                text-decoration: none;
+            }
+            #toggles {
+                display: table;
+                font-size: 2vmin;
+                margin: 2vmin 5% 0vmin;
+                width: 90%;
+            }
+            #toggles label {
+                display: table-cell;
+            }
+            .switch {
+                position: relative;
+                width: 60px;
+                height: 34px;
+                margin: 0% 2% 3% 2%;
+            }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+            .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #6d0505;
+            -webkit-transition: .4s;
+            transition: .4s;
+            height: inherit;
+            }
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: #810606;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+            input:checked + .slider {
+                background-color:rgb(233, 124, 22);
+            }
+            input:disabled + .slider:before {
+                background-color:rgba(32, 6, 6, 0.678);
+            }
+            input:focus + .slider {
+                box-shadow: 0 0 1px #830707;
+            }
+            input:checked + .slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px);
+            }
+            .slider.round {
+                border-radius: 34px;
+            }
+            .slider.round:before {
+                border-radius: 50%;
+            }
+            #start {
+                background: linear-gradient(145deg, #810606, #6d0505);
+            }
+            #hard {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            #top {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            }
+            .sidebutton {
+                border-radius: 33px;
+                background: linear-gradient(145deg, #f98518, #d27014);
+                box-shadow:  9px 9px 18px #c66913, 
+                        -9px -9px 18px #ff8f19;
+                border: none;
+                padding: 2vmin 4vmin;
+                display: inline-block;
+                text-decoration: none;
+                font-size: 3vmin;
+                margin: 4px 3vmin;
+            }
+            .sidebutton:active, #set:active {
+                border-radius: 33px;
+                background: linear-gradient(145deg, #d27014, #f98518);
+                box-shadow:  9px 9px 18px #c66913, 
+                        -9px -9px 18px #ff8f19;
+            }
+            
+            #game {
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 2vmin;
+                height: 60%;
+                max-height: 70vmin;
+                width: 50%;
+            }
+            img {
+                max-height: 15vmin;
+                border-radius: 2vmin;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #players {
+                height: 90%;
+                width: fit-content;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+            #players button {
+                margin-top: 2vmin;
+                display: block;
+                font-size: 2vmin;
+            }
+            .selected{
+                opacity: 0.5;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="ui">
+            <p id="status">Hátralevő idő: 10s</p>
+            <p id="restnum">Hátralevő kártyák: 15 db</p>
+            <div id="players"></div>
+            <table id="game"></table>
+            <button class="sidebutton" id="cheat">Mutass</button>
+            <button class="sidebutton" id="plus">+3</button>
+            <button class="sidebutton" id="check">Van?</button>
+            <button class="sidebutton" id="replay">Újrajátszás</button>
+            <span id="players"></span>
+        </div>
+        <div id="front-page">
+            <h1>SET</h1>
+            <button class="off" id="hard">Haladó</button>
+            <button class="off" id="top">Top</button>
+            <table id="toplist"></table>
+            <button id="rules" type="button" class="off">Játékszabályok</button>
+            <div class="show"><p>A játék célja hogy 3 kártyából álló SET-eket találjunk meg az asztalra lehelyezett 12 kártyából. Minden kártyának 4 tulajdonsága van, amik a következők:</p>
+            <ul>
+                <li>FORMA: ovális, hullámos, rombusz</li>
+                <li>SZÍN: piros, zöld, lila</li>
+                <li>SZÁM: 1, 2 vagy 3 forma</li>
+                <li>TARTALOM: tömör, csíkos, üres (ez csak a plusz feladatokban jelenik meg.)</li>
+            </ul>            
+            <p>Egy SET 3 kártyából áll, amiben minden jellemzőt külön megvizsgálva, azoknak</p>
+            <ul>
+                <li>vagy minden kártyán azonosnak,</li>
+                <li>vagy minden kártyán különbözőnek kell lennie.</li>
+            </ul>
+            <p>Ennek a szabálynak MINDEN tulajdonság esetében meg kell felelnie a kiválasztott három lapnak. Más szavakkal: a forma vagy azononos mindhárom kártyán, vagy mindegyiken más; a szín vagy azonos mindhárom kártyán, vagy mindegyiken különböző, stb... Fordítva: ha a lapokon egy tulajdonságot vizsgálva 2 azonos és 1 különböző típus látható, akkor az nem SET. Például, ha 2 lap piros, 1 pedig lila, akkor az nem SET.</p></div>
+            <div class="show">
+                <span id="num">
+                </span><br>
+                <span id="mode">
+                </span><br>
+                <span id="toggles">
+                    <label class="lbl">Legyen gomb amely megmondja van-e SET?</label>
+                    <label class="switch">
+                        <input type="checkbox" class="toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <label class="lbl">Legyen gomb amely segít mutatni egy SETet?</label>
+                    <label class="switch">
+                        <input type="checkbox" class="toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <label class="lbl">A három lapos kiegészítés manuális legyen? (külön gomb)</label>
+                    <label class="switch">
+                        <input type="checkbox" class="toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </span><br>
+                <button class="off" id="start">START</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

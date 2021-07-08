@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+ <html lang="hu">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Csizmadia Tamás - christmas draw</title>
+		<link rel="icon" href="../resources/icon.png">
+		<link rel="stylesheet" href="../resources/csizmadiat.css" type="text/css" title="csizmadiat">
+	</head>
+	<body>
+		<header>
+			<nav class="navbar">
+				<ul>
+					<li><a id="bt1">draw</a></li>
+					<li><a id="bt2">edit</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<div id="draw">
+                <label>name</label><br><input type="text" id="user"><span id="usrerr"></span><br>
+                <label>password</label><br><input type="password" id="pwd"><span id="pwderr"></span><br>
+                <button id="drawbtn">draw</button>
+                <div id="drawn"></div>
+			</div>
+            <div id="edit">
+				<ul id="editlist"></ul>
+				<label>new name</label><br><input type="text" id="addusr"><br>
+                <label>new password</label><br><input type="password" id="addpwd"><br>
+                <button id="addbtn">add</button>
+			</div>
+			
+		</main>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="./resources/script.js"></script>
+	</body>
+</html>

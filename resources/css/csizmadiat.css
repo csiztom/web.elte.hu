@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+@media screen and (max-width: 450px) {
+    .navbar {
+        text-align: center;
+    }
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #292929;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    overflow: auto;
+    top: 0;
+    width: 100%;
+    -webkit-user-select:none;-moz-user-select:-moz-none;
+    -ms-user-select:none;user-select:none
+}
+
+.navbar a:hover {
+    border: 1.5px solid #e0e0e0;
+}
+
+.clicked, .notclicked:active {
+    background: #f0f0f0;
+    box-shadow: inset 6px 6px 12px #dddddd,
+            inset -6px -6px 12px #ffffff;
+}
+
+.notclicked {
+    background: #f0f0f0;
+    box-shadow:  6px 6px 12px #dddddd,
+             -6px -6px 12px #ffffff;
+}
+
+.navbar a {
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #292929;
+    display: inline-block;
+    padding: 15px 13px 15px 13px;
+    box-sizing: border-box;
+    margin: 15px 15px 15px 15px;
+}
+
+.file {
+    color: #292929;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+main li {
+    padding: 0 0 15px 0;
+}
+
+main {
+    margin: 5% 10% 0 10%;
+}
