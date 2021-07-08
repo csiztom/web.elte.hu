@@ -35,6 +35,7 @@ const Links = {
     data: function () {
         return {
             links: [
+                {link: 'https://github.com/csiztom/web.elte.hu', name: 'github repo'},
                 {link: '/set', name: 'set - card game'},
                 {link: '/christmas', name: 'christmas chooser (under development)'}
             ]
