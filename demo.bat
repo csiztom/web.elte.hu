@@ -1,0 +1,1 @@
+xcopy public "H:\Program Files\xamppapp\htdocs\" /e /s /y
