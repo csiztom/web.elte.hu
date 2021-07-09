@@ -43,7 +43,7 @@ const Links = {
                 {link: '/christmas', name: 'christmas chooser (under development)'}
             ],
             routerLinks: [
-                {link: '/eventmaker', name: 'event maker'}
+                {link: '/eventmaker', name: 'eventmaker'}
             ]
         }
     }
@@ -53,17 +53,13 @@ const EventMaker = {
     template: `
         <div>
             <p>eventmaker</p>
-            <p>
-            name: <input type="text" v-model="name" @change="updateMessage('')">
-            </p>
+            <p>name: <input type="text" v-model="name" @change="updateMessage('')"></p>
             <p>when are you available?</p>
-            <p>
-            start: <input type="date" v-model="start" @change="updateMessage('')" placeholder="yyyy-mm-dd">
-            end: <input type="date" v-model="end" @change="updateMessage('')" placeholder="yyyy-mm-dd">
-            </p>
-            <p><button @click="submit">click to submit</button>{{ message }}</p>
-            <p>you can add multiple intervals by submitting again</p>
-            <p>submitting a day twice makes it free</p>
+            <p>start: <input type="date" v-model="start" @change="updateMessage('')" placeholder="yyyy-mm-dd"></p>
+            <p>end: <input type="date" v-model="end" @change="updateMessage('')" placeholder="yyyy-mm-dd"></p>
+            <p><button class="notclicked" @click="submit">click to submit</button>{{ message }}</p>
+            <p>you can add multiple intervals by submitting one-after-another</p>
+            <p>submitting an interval twice is like not submitting</p>
         </div>`,
     data: function () {
         return {

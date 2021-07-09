@@ -50,11 +50,15 @@ body {
     margin: 15px 15px 15px 15px;
 }
 
+main {
+    margin: 5% 10% 0 10%;
+}
+
 .file {
     color: #292929;
 }
 
-ul {
+main ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -64,6 +68,20 @@ main li {
     padding: 0 0 15px 0;
 }
 
-main {
-    margin: 5% 10% 0 10%;
+main button {
+    color: #c48302;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 7px;
+    box-sizing: border-box;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+main button:hover {
+    border: 1.5px solid #e0e0e0;
 }
