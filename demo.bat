@@ -1,1 +1,1 @@
-scp -r public iw80qb@pandora.inf.elte.hu:~/public/public_html/
+xcopy public "H:\Program Files\xamppapp\htdocs\" /e /s /y
