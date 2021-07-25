@@ -71,6 +71,7 @@ const EventMaker = {
     },
     methods: {
         submit: function () {
+            var tmp = this
             $.ajax({
                 type: "POST",
                 url: "/resources/php/submit.php",
@@ -79,11 +80,13 @@ const EventMaker = {
                     'start': this.start,
                     'end': this.end
                 },
-                success: this.updateMessage(" success")
+                success: function (data) {
+                    tmp.updateMessage(data)
+                }
             });
         },
         updateMessage: function (mess) {
-            this.message = mess
+            this.message = " " + mess
         }
     }
 }
