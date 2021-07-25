@@ -1,47 +1,35 @@
+// content
+function initContent() {
+    let content = {}
+    $.ajax({
+        url: '/resources/json/main.json',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            content = data
+        }
+    })
+    return content
+}
+const content = initContent()
+
 // components
-const Hello = { 
+const Morpher = Vue.component('morpher', { 
+    props: ['name'],
     template: `
         <div>
-            <p>hello, i'm Csizmadia Tamás</p>
-            <p>elte ik cs bsc 4th semester</p>
-            <p>junior front-end web developer</p>
-            <p>js, html, css, vue</p>
-        </div>`
-}
-
-const Files = { 
-    template: `
-        <ul>
-            <li v-for='f in files'>
-                <a class='file' :href='f.link'>{{ f.name }}</a>
-            </li>
-        </ul>`,
+            <div v-for="c in content[this.name]">
+                <p v-if="c.type == 'text'" class="text">{{ c.value }}</p>
+                <p v-if="c.type == 'subtext'" class="subtext">{{ c.value }}</p>
+                <p v-if="c.type == 'link'"><a :href="c.value.href" class="link">{{ c.value.text }}</a></p>
+            </div>
+        </div>`,
     data: function () {
         return {
-            files: [
-                {link: '/file/cv.pdf', name: 'curriculum vitae'}
-            ]
+            content: content
         }
     }
-}
-
-const Links = { 
-    template: `
-        <ul>
-            <li v-for='l in links'>
-                <a class='file' :href='l.link'>{{ l.name }}</a>
-            </li>
-        </ul>`,
-    data: function () {
-        return {
-            links: [
-                {link: 'https://github.com/csiztom/web.elte.hu', name: 'github repo'},
-                {link: '/set', name: 'set - card game'},
-                {link: '/christmas', name: 'christmas chooser (under development)'}
-            ]
-        }
-    }
-}
+})
 
 const NotFound = { 
     template: `
@@ -51,13 +39,28 @@ const NotFound = {
 }
 
 // router
-const routes = [
-    { path: '/', redirect: '/hello' },
-    { path: '/hello', name: 'hello', component: Hello },
-    { path: '/files', name: 'files', component: Files },
-    { path: '/links', name: 'links', component: Links },
-    { path: '/*', name: 'notfound', component: NotFound }
-]
+function initRouter() {
+    var routes = []
+    routes.push({ 
+        path: '/', 
+        redirect: '/hello',
+    })
+    for (let i = 0; i < Object.keys(content).length; i++) {
+        routes.push({ 
+            path: '/'+Object.keys(content)[i], 
+            name: Object.keys(content)[i], 
+            component: Morpher,
+            props: { name: Object.keys(content)[i] }
+        })
+    }
+    routes.push({ 
+        path: '/*', 
+        name: 'notfound', 
+        component: NotFound 
+    })
+    return routes
+}
+const routes = initRouter()
 
 const router = new VueRouter({
     routes,
@@ -69,10 +72,6 @@ const app = new Vue({
     el: '#app',
     router,
     data: {
-        menu: [
-            'hello',
-            'files',
-            'links'
-        ]
+        menu: Object.keys(content)
     }
 })

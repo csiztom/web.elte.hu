@@ -23,22 +23,6 @@ body {
     -ms-user-select:none;user-select:none
 }
 
-.navbar a:hover {
-    border: 1.5px solid #e0e0e0;
-}
-
-.clicked, .notclicked:active {
-    background: #f0f0f0;
-    box-shadow: inset 6px 6px 12px #dddddd,
-            inset -6px -6px 12px #ffffff;
-}
-
-.notclicked {
-    background: #f0f0f0;
-    box-shadow:  6px 6px 12px #dddddd,
-             -6px -6px 12px #ffffff;
-}
-
 .navbar a {
     border: 1.5px solid transparent;
     border-radius: 10px;
@@ -49,21 +33,31 @@ body {
     box-sizing: border-box;
     margin: 15px 15px 15px 15px;
 }
-
-.file {
-    color: #292929;
+.navbar a:hover {
+    border: 1.5px solid #e0e0e0;
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.clicked, .notclicked:active {
+    background: #f0f0f0;
+    box-shadow: inset 6px 6px 12px #dddddd,
+            inset -6px -6px 12px #ffffff;
 }
-
-main li {
-    padding: 0 0 15px 0;
+.notclicked {
+    background: #f0f0f0;
+    box-shadow:  6px 6px 12px #dddddd,
+             -6px -6px 12px #ffffff;
 }
 
 main {
     margin: 5% 10% 0 10%;
+}
+
+.link {
+    color: #292929;
+}
+.text {
+    color: #292929;
+}
+.subtext {
+    color: #7d7d7d;
+    margin-left: 30px;
 }
