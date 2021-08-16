@@ -18,6 +18,7 @@ const Morpher = Vue.component('morpher', {
     props: ['name'],
     template: `
         <div>
+            <p v-if="content[this.name].length == 0">no content</p>
             <div v-for="c in content[this.name]">
                 <p v-if="c.type == 'text'" class="text">{{ c.value }}</p>
                 <p v-if="c.type == 'subtext'" class="subtext">{{ c.value }}</p>

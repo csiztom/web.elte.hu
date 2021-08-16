@@ -1,1 +1,1 @@
-scp -r public csizmadiat@caesar.elte.hu:~/public_html/
+scp -r public/. csizmadiat@caesar.elte.hu:~/public_html/

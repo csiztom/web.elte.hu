@@ -1,8 +1,6 @@
-<If "%{SERVER_NAME} == 'csizmadiat.web.elte.hu'">
-  RewriteEngine On
-  RewriteCond %{HTTPS} off
-  RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
-</If>
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://csizmadiat.web.elte.hu/$1 [R,L]
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
