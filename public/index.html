@@ -10,13 +10,7 @@
 	<body>
 		<div id='app'>
 			<header>
-				<nav class='navbar'>
-					<router-link v-for='btn in menu' 
-					   :to='"/"+btn'
-					   :key='btn' 
-					   :class='$route.name == btn ? "clicked" : "notclicked"'
-					   >{{ btn }}</router-link>
-				</nav>
+				<navbar :menu='menu'/>
 			</header>
 			<main>
 				<router-view></router-view>
