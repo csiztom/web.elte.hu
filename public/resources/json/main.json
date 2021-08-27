@@ -49,6 +49,8 @@
         }
     ],
     "learn": [
-        
+        {
+            "type": "classes"
+        }
     ]
 }

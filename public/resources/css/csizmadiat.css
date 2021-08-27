@@ -38,13 +38,13 @@ body {
 }
 .clicked, .notclicked:active {
     background: #f0f0f0;
-    box-shadow: inset 6px 6px 12px #dddddd,
-            inset -6px -6px 12px #ffffff;
+    box-shadow: inset 4px 4px 10px #dddddd,
+            inset -4px -4px 10px #ffffff;
 }
 .notclicked {
     background: #f0f0f0;
-    box-shadow:  6px 6px 12px #dddddd,
-             -6px -6px 12px #ffffff;
+    box-shadow: 4px 4px 10px #dddddd,
+            -4px -4px 10px #ffffff;
 }
 
 main {
@@ -60,4 +60,10 @@ main {
 .subtext {
     color: #7d7d7d;
     margin-left: 30px;
+}
+.small {
+    font-size: 0.8rem;
+}
+.timetable {
+    color: #292929;
 }
