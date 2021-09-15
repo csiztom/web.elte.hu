@@ -31,6 +31,13 @@
             "duration": 135
         },
         {
+            "name": "konkurens programozás gy",
+            "place": "d2-218",
+            "day": 1,
+            "start": 1080,
+            "duration": 45
+        },
+        {
             "name": "adatbázisok ii. ea",
             "place": "d0-821",
             "day": 2,
@@ -60,7 +67,7 @@
         },
         {
             "name": "numerikus módszerek ii. ea",
-            "place": "",
+            "place": "d0-822",
             "day": 4,
             "start": 480,
             "duration": 45
@@ -82,13 +89,6 @@
         {
             "name": "eseményvezérelt alkalmazások ea",
             "place": "d0-821",
-            "day": 4,
-            "start": 840,
-            "duration": 90
-        },
-        {
-            "name": "konkurens programozás gy",
-            "place": "d2-218",
             "day": 4,
             "start": 840,
             "duration": 90
@@ -120,6 +120,13 @@
             "day": 8,
             "start": 840,
             "duration": 135
+        },
+        {
+            "name": "konkurens programozás gy",
+            "place": "online",
+            "day": 8,
+            "start": 1080,
+            "duration": 45
         },
         {
             "name": "adatbázisok ii. ea",
@@ -172,13 +179,6 @@
         },
         {
             "name": "eseményvezérelt alkalmazások ea",
-            "place": "online",
-            "day": 11,
-            "start": 840,
-            "duration": 90
-        },
-        {
-            "name": "konkurens programozás gy",
             "place": "online",
             "day": 11,
             "start": 840,

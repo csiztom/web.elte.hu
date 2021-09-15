@@ -26,6 +26,7 @@ function initContent() {
 }
 const content = initContent()
 
+/*
 var timetable = {}
 function initClasses() {
     $.ajax({
@@ -38,6 +39,7 @@ function initClasses() {
     })
 }
 initClasses()
+*/
 
 // ##############
 // # components #
@@ -80,7 +82,7 @@ const NotFound = {
             <p>404 not found</p>
         </div>`
 }
-
+/*
 const Timetable = Vue.component('timetable', {
     template: `
         <div>
@@ -164,6 +166,7 @@ const Timetable = Vue.component('timetable', {
         this.interval = setInterval(() => this.setTimetable(this), 1000)
     }
 })
+*/
 
 // ##########
 // # router #

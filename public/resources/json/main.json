@@ -50,7 +50,18 @@
     ],
     "learn": [
         {
-            "type": "classes"
+            "type": "link",
+            "value": {
+                "text": "adatbázisok gy",
+                "href": "https://people.inf.elte.hu/vzoli/Adatbazisok_2/"
+            }
+        },
+        {
+            "type": "link",
+            "value": {
+                "text": "telekommunikációs hálózatok gy",
+                "href": "https://ggombos.web.elte.hu/oktatas/SzamHalo/"
+            }
         }
     ]
 }
