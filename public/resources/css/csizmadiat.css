@@ -59,6 +59,15 @@ main {
     color: #7d7d7d;
     margin-left: 30px;
 }
+.image {
+    border-radius: 10px;
+    border: 0.5px solid #f0f0f0;
+    background: #f0f0f0;
+    box-shadow: 4px 4px 10px #dddddd,
+            -4px -4px 10px #ffffff;
+    max-width: 80%;
+    max-height: 300px;
+}
 
 .small {
     font-size: 0.9rem;
