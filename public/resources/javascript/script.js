@@ -1,22 +1,3 @@
-// ##################
-// # initialization #
-// ##################
-
-function initContent() {
-    const random = Math.random() * 10000
-    let content = {}
-    $.ajax({
-        url: '/resources/view/main.json?ver=' + random,
-        dataType: 'json',
-        async: false,
-        success: function (data) {
-            content = data
-        }
-    })
-    return content
-}
-const content = initContent()
-
 // ##############
 // # components #
 // ##############
