@@ -39,12 +39,12 @@ body {
 }
 .clicked, .notclicked:active {
     background: #f0f0f0;
-    box-shadow: inset 4px 4px 10px #dddddd,
+    box-shadow: inset 4px 4px 10px #bdbdbd,
             inset -4px -4px 10px #ffffff;
 }
 .notclicked {
     background: #f0f0f0;
-    box-shadow: 4px 4px 10px #dddddd,
+    box-shadow: 4px 4px 10px #bdbdbd,
             -4px -4px 10px #ffffff;
 }
 
@@ -89,7 +89,7 @@ main {
 .image {
     border-radius: 10px;
     background: #f0f0f0;
-    box-shadow: 6px 6px 12px #adadad,
+    box-shadow: 6px 6px 12px #bdbdbd,
             -6px -6px 12px #ffffff;
     max-width: 80%;
     max-height: 300px;
