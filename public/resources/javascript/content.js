@@ -1,12 +1,13 @@
 const content = {
     about: [
         {
-            type: 'text',
-            value: "hello, i'm <span class='primary'>Csizmadia Tamás</span>"
+            type: 'image',
+            src: '/file/profile.jpg',
+            param: 'round'
         },
         {
-            type: 'image',
-            src: '/file/background.jpeg'
+            type: 'text',
+            value: "hello, i'm <span class='primary'>Csizmadia Tamás</span>"
         },
         {
             type: 'text',
