@@ -11,11 +11,11 @@ const pageContent = {
         },
         {
             type: 'text',
-            value: 'computer science bsc 5th semester'
+            value: 'computer science bsc'
         },
         {
             type: 'subtext',
-            value: 'at elte ik'
+            value: 'at elte ik <span class="small">2019 - 2022</span>'
         },
         {
             type: 'text',
@@ -60,7 +60,7 @@ const pageContent = {
         },
         {
             type: 'text',
-            value: "<span class='small muted'>other pages</span>"
+            value: "<span class='small muted'>projects</span>"
         },
         {
             type: 'link',
@@ -74,6 +74,17 @@ const pageContent = {
             value: {
                 text: 'set card game',
                 href: '/set'
+            }
+        },
+        {
+            type: 'text',
+            value: "<span class='small muted'>other pages</span>"
+        },
+        {
+            type: 'link',
+            value: {
+                text: 'linkedin profile',
+                href: 'https://www.linkedin.com/in/csiztom/'
             }
         }
     ],
