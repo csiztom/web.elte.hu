@@ -1,4 +1,4 @@
-const content = {
+const pageContent = {
     about: [
         {
             type: 'image',

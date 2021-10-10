@@ -28,7 +28,7 @@ const Morpher = Vue.component('morpher', {
         </div>`,
     data: function () {
         return {
-            content: content
+            content: pageContent
         }
     }
 })
@@ -48,14 +48,14 @@ function initRouter() {
     let routes = []
     routes.push({
         path: '/',
-        redirect: '/' + Object.keys(content)[0]
+        redirect: '/' + Object.keys(pageContent)[0]
     })
-    for (let i = 0; i < Object.keys(content).length; i++) {
+    for (let i = 0; i < Object.keys(pageContent).length; i++) {
         routes.push({
-            path: '/' + Object.keys(content)[i],
-            name: Object.keys(content)[i],
+            path: '/' + Object.keys(pageContent)[i],
+            name: Object.keys(pageContent)[i],
             component: Morpher,
-            props: { name: Object.keys(content)[i] }
+            props: { name: Object.keys(pageContent)[i] }
         })
     }
     routes.push({
@@ -80,6 +80,6 @@ const app = new Vue({
     el: '#app',
     router,
     data: {
-        menu: Object.keys(content)
+        menu: Object.keys(pageContent)
     }
 })
