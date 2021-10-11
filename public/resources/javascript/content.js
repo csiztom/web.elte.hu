@@ -52,11 +52,8 @@ const pageContent = {
             value: "<span class='small muted'>files</span>"
         },
         {
-            type: 'link',
-            value: {
-                text: 'curriculum vitae',
-                href: '/file/cv.pdf'
-            }
+            type: 'text',
+            value: "<span class='muted'>none</span>"
         },
         {
             type: 'text',
